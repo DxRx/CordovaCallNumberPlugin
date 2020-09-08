@@ -43,13 +43,12 @@
      [self.commandDelegate runInBackground:^{
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.commandDelegate runInBackground: ^{
-                CDVPluginResult* pluginResult = [CDVPluginResult
+            CDVPluginResult* pluginResult = [CDVPluginResult
                                                  resultWithStatus:CDVCommandStatus_OK
                                                  messageAsBool:[CFCallNumber available]];
-                [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-            }];
-    });
+            [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+        });
+     }];
 }
 
 @end
